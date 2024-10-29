@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 
 import '../cpx_data.dart';
 
+
 /// With [CPXSurveyCards] you can add the CPX Survey Cards
 ///
 /// The [config] defines the style of the CPX Survey Cards
@@ -45,7 +46,9 @@ class _CPXSurveyCardsState extends State<CPXSurveyCards> {
     return surveys.isNotEmpty
         ? SizedBox(
             height: MediaQuery.of(context).size.width /
-                    (orientation == Orientation.portrait ? config.cardCount : config.cardCount * 2.5) +
+                (orientation == Orientation.portrait
+                    ? config.cardCount
+                    : config.cardCount * 2.5) +
                 30,
             child: GridView.builder(
               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
@@ -126,7 +129,9 @@ class CPXCard extends StatelessWidget {
         list.add(
           Icon(
             Icons.star,
-            color: i <= survey.statisticsRatingAvg! ? config.starColor : config.inactiveStarColor,
+            color: i <= survey.statisticsRatingAvg!
+                ? config.starColor
+                : config.inactiveStarColor,
           ),
         );
       }
@@ -139,7 +144,8 @@ class CPXCard extends StatelessWidget {
         style: ElevatedButton.styleFrom(
             backgroundColor: config.cardBackgroundColor,
             foregroundColor: config.inactiveStarColor,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20))),
         onPressed: () {
           HapticFeedback.selectionClick();
           showBrowser(survey.id);
@@ -149,8 +155,7 @@ class CPXCard extends StatelessWidget {
           children: [
             Column(
               children: [
-                survey.payoutOriginal != null
-                    ? Row(
+                survey.payoutOriginal != null ? Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           FittedBox(
@@ -189,7 +194,8 @@ class CPXCard extends StatelessWidget {
                   fit: BoxFit.fitWidth,
                   child: Text(
                     cpxText != null ? cpxText!.currency_name_plural! : 'Coins',
-                    style: TextStyle(color: config.accentColor),
+                    style: TextStyle(
+                        color: config.accentColor),
                   ),
                 ),
               ],
