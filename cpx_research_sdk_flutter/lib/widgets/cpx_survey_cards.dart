@@ -33,7 +33,7 @@ class _CPXSurveyCardsState extends State<CPXSurveyCards> {
 
   @override
   void initState() {
-    setState(() => surveys = cpxData.surveys.value != null ? cpxData.surveys.value! : []);
+    surveys = cpxData.surveys.value != null ? cpxData.surveys.value! : [];
     cpxData.surveys.addListener(onSurveyUpdate);
     config = widget.config ?? CPXCardConfig();
     super.initState();
