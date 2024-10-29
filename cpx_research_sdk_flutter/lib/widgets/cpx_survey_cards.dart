@@ -28,12 +28,12 @@ class _CPXSurveyCardsState extends State<CPXSurveyCards> {
   late CPXCardConfig config;
 
   void onSurveyUpdate() {
-    setState(() => surveys = cpxData.surveys.value != null ? cpxData.surveys.value! : []);
+    setState(() => _refreshSurveys());
   }
 
   @override
   void initState() {
-    surveys = cpxData.surveys.value != null ? cpxData.surveys.value! : [];
+    _refreshSurveys();
     cpxData.surveys.addListener(onSurveyUpdate);
     config = widget.config ?? CPXCardConfig();
     super.initState();
@@ -65,6 +65,8 @@ class _CPXSurveyCardsState extends State<CPXSurveyCards> {
             ? Container()
             : widget.noSurveysWidget ?? Text("No Surveys available");
   }
+
+  void _refreshSurveys()=> surveys = cpxData.surveys.value != null ? cpxData.surveys.value! : [];
 }
 
 /// With [CPXCardConfig] you can style the CPX Survey Cards
