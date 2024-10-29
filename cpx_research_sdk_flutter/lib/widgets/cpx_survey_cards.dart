@@ -46,9 +46,9 @@ class _CPXSurveyCardsState extends State<CPXSurveyCards> {
     return surveys.isNotEmpty
         ? SizedBox(
             height: MediaQuery.of(context).size.width /
-                (orientation == Orientation.portrait
-                    ? config.cardCount
-                    : config.cardCount * 2.5) +
+                    (orientation == Orientation.portrait
+                        ? config.cardCount
+                        : config.cardCount * 2.5) +
                 30,
             child: GridView.builder(
               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
