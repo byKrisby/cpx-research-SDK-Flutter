@@ -187,15 +187,15 @@ class CPXCard extends StatelessWidget {
                         fit: BoxFit.fitWidth,
                         child: Text(
                           survey.payout!,
-                          style: TextStyle(color: config.accentColor, fontSize: 18),
+                          style: TextStyle(
+                              color: config.accentColor, fontSize: 18),
                         ),
                       ),
                 FittedBox(
                   fit: BoxFit.fitWidth,
                   child: Text(
                     cpxText != null ? cpxText!.currency_name_plural! : 'Coins',
-                    style: TextStyle(
-                        color: config.accentColor),
+                    style: TextStyle(color: config.accentColor),
                   ),
                 ),
               ],
